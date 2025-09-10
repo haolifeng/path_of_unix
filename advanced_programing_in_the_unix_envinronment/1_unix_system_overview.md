@@ -26,6 +26,28 @@ sar:x:205:105:Stephen Rage:/home/sar:/bin/ksh
 
 2. shell
 
+用户登录后，系统通常先显示一些系统信息，然后用户就可以向shell程序键入命令。（当用户登录时，某些系统启动一个视窗管理程序，但最终总会有一个shell程序运行在一个视窗中）。shell是一个命令行解释器，它读取用户输入，然后执行命令。shell的用户输入通常来自于终端（交互式shell），有时则来自于文件（称为shell脚本）。图1-2总结了unix系统中常见的hell。
+
+![shell type](./images/1-2shelltype.png)
+
+系统从口令文件中相应用户登录项的最后一个字段中了解到应该为该登录用户执行哪一个shell。
+
+自V7以来，有Steve Bourne在贝尔实验室开发的Bourne shell得到了广泛应用，几乎每一个现有的Unix系统都提供Bourne shell,其控制流结构类似于Algol68。
+
+C shell是由Bill Joy在伯克利开发的，所有BSD版本都提供这种shell。另外，AT&T的System V/386 R3.2和System V R4(SVR4)也提供C shell(下一章将对这些不同版本的Unix系统做更多的说明)。C shell是在第6版而非Bourrne shell的基础上构造的，其控制流类似于C语音，它支持Bourne shell没有的一些特色功能，例如作业控制，历史机制以及命令行编辑等。
+
+Korn shell是Bourne shell的后继者，它首先在SVR4中提供。Korn shell是有贝尔实验室的David Korn开发的，在大多数Unix系统上运行，但在Svr4之前，通常它需要另行购买，所有没有其他两种shell流行。它于Bourne shell向上兼容，病具有使C shell广泛得到应用的一些特色功能，包括作业控制以及命令行编辑等。
+
+Bourne-again shell 是GNU shell,所有Linux系统都提供这种shell。它的设计遵循POSIX标准，同时也保留了与Bourne shell的兼容性。它支持C shell和Korn shell两者的特色功能。
+
+TENEX C shell是C shell的加强版本。它从TENEX操作系统（1972年BBN公司开发）借鉴了很多特色，例如命令完备。TENEX C shell在C shell基础上增加了很多特性，常被用来替换C shell.
+
+POSIX 1003.2标准对Shell进行了标准化。这项规范基于Korn shell和Bourne shell的特性。
+
+本书将使用很多交互式Shell实例来执行所开发的程序，这些实例使用了Bourne shell, Korn shell和Bourne-again shell通用的功能。
+
+## 1.4 文件和目录
+
 
 
 
