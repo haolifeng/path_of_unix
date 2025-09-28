@@ -65,4 +65,41 @@ UNIX文件系统是目录和文件的一种层次结构，所有东西的起点�
 
 + 实例
 
-不难列出一个目录中所有文件的名字，图1-3是ls(l)命令的简要实现。
+不难列出一个目录中所有文件的名字，图1-3是ls(1)命令的简要实现。
+
+```c
+#include "apue.h"
+#include <dirent.h>
+int main(int argc, char * argv[]) {
+    DIR *dp;
+    struct dirent *dirp;
+    if(argc != 2) 
+        err_quit("usage: ls directory_name");
+    if((dp = opendir(argv[1])) == NULL) {
+        err_sys("can't open %s", argv[1]);
+    }
+
+    while ((dirp = readdir(dp)) != NULL) 
+        printf("%s\n", dirp->d_name);
+    closedir(dp);
+
+    exit(0);
+}
+```
+图1-3 列出一个目录中所有文件
+ls(1)这种表示方法是unix系统的惯用方法，用以引用Unix系统手册中的一个特定项。ls(1)引用第一部分中的ls项。各部分通常用数字1-8编号，在每个部分中的各项则按字母顺序排列。在本书中始终假定你有自己所使用的UNIX系统的手册。
+
+现今，大多数手册都以电子文档形式提供。如果用的是联机手册，则可用下面的命令查看ls命令手册页：
+```bash
+man l ls 
+```
+或
+```bash
+man -sl ls
+```
+图1-3只打印一个目录中各个文件的名字，不显示其他信息，如果该源文件名为myls.c,则可以用下面的命令对其进行编译，编译结果是生成默认名为a.out的可执行文件中。
+```bash
+cc myls.c
+```
+
+
