@@ -105,5 +105,29 @@ man -sl ls
 ```bash
 cc myls.c
 ```
+示例输出如下：
+```bash
+$ ./a.out /dev
+.
+..
+cdrom
+stderr
+null                   
+    很多行没有显示
+
+$ ./a.out /etc/ssl/private
+can't open /etc/ssl/private: Permission denited
+
+$./a.out /dev/tty
+can't open /dev/tty: Not a directory
+```
+本书将以以下方式表示输出的命令及其输出：输入的字符以等宽粗体表示，程序输出则以上面所示的等宽字体表示，堆输出的注释以中文字体表示。输入之前的美元符号是shell的提示符，本书总是将shell提示符表示为$。
+
+注意，myls程序列出的目录中的文件名不是以字母顺序列出的，而ls命令一般是按字母顺序打印目录项。
+
+在这个20多行的程序中，有很多细节需要考虑。
++ 首先，其中包含了一个头文件apue.h。本书中几乎每个程序都包含此头文件。它包含了某些标准系统头文件，定义了许多常量及函数原型，这些都将用于本书的各个实例中。附录B列出了这一头文件。
+
++ 
 
 
